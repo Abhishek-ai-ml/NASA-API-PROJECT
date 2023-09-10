@@ -39,8 +39,8 @@ const Mars = ({setRoverInfoData}) => {
     }, [roverName, date]);
     console.log("DATA from api ------", RoverData);
   return (
-    <div>
-        <div className='w-11/12 mx-auto flex flex-col justify-center items-center gap-y-10'>
+    <div className="pt-10">
+        <div className='w-10/12 mx-auto flex flex-col justify-center items-center gap-y-10'>
             <h1 className='text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-orange-400'>Welcome To Mars</h1>
 
             <div className='flex w-full gap-x-5'>
@@ -62,7 +62,7 @@ const Mars = ({setRoverInfoData}) => {
                 </div>
             </div>
 
-            <div className='flex flex-wrap w-full justify-center gap-x-5 gap-y-5'>
+            <div className='flex flex-wrap w-full justify-around gap-x-5 gap-y-5'>
                { RoverData.length > 0 ? RoverData.map((item) => ( 
                     <Link to="/mars/rover-image-desc" className='w-[25%]  hover:shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] hover:scale-110 hover:cursor-pointer transition-all duration-200 ease-in-out'><img src={item.img_src} onClick={() => setRoverInfoData(item)} /></Link>
                 )) : <div className='text-5xl text-cyan-500 font-semibold'>No Images found</div>}

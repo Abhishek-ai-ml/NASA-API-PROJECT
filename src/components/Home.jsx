@@ -1,6 +1,7 @@
 import React from "react";
 
 const Home = ({ data }) => {
+    console.log("The data is ====", data);
   return (
     <div className="text-white px-20 py-5 bg-slate-600 h-screen">
       <div className="h-200 w-30 flex ">
