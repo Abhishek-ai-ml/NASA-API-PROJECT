@@ -7,9 +7,9 @@ const Navbar = () => {
       <div className='text-white text-xl m-10'>
         <Link className="mx-10" to={'/'}>Home</Link>
         <Link className="mx-10" to={"/mars"}>
-            Mars Temperature
+            Mars
         </Link>
-        <Link className="mx-10" to={"/mars"}>Rover in mars</Link>
+        <Link className="mx-10" to={"/asteroids-info"}>Asteroids</Link>
       </div>
     </div>
   )

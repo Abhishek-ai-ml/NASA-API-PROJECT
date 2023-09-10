@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Mars from "./components/Mars";
 import Home from "./components/Home";
 import RoverImage from "./components/RoverImage";
+import Asteroids from "./components/Asteroids";
 
 function App() {
   const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ function App() {
         <Route path="/" element={<Home data={data}/>}/>
         <Route path='/mars' element={<Mars setRoverInfoData={setRoverInfoData}/>}/>
         <Route path="/mars/rover-image-desc" element={<RoverImage roverInfoData={roverInfoData}/>}/>
+        <Route path="/asteroids-info" element={<Asteroids/>}/>
       </Routes>
 
     </div>
