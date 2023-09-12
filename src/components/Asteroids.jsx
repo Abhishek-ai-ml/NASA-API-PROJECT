@@ -8,6 +8,8 @@ const Asteroids = () => {
     const [asteroid, setAsteroid] = useState('3542519');
     const [asteroidData, setAsteroidData] = useState([]);
     const [unit, setUnit] = useState('feet');
+    const [missDistUnit, setMissDistUnit] = useState('kilometers');
+    const [relvelUnit, setRelVelUnit] = useState('kilometers_per_hour');
     const [chartRange, setChartRange] = useState({From:0, To:50});
 
     
@@ -16,11 +18,20 @@ const Asteroids = () => {
         datasets: [
             {
                 label: "Relative Velocity",
-                data: asteroidData?.close_approach_data?.map((d) => d?.relative_velocity?.kilometers_per_hour),
+                data: asteroidData?.close_approach_data?.map((d) => relvelUnit === 'Km / H' ? d?.relative_velocity?.kilometers_per_hour : relvelUnit === 'Km / Sec' ? d?.relative_velocity?.kilometers_per_second : d?.relative_velocity?.miles_per_hour),
             }
         ]
     }
 
+    const missDistCharData = {
+        labels: asteroidData?.close_approach_data?.map((d) => d?.close_approach_date).slice(chartRange.From, chartRange.To),
+        datasets: [
+            {
+                label: "Miss Distance",
+                data: asteroidData?.close_approach_data?.map((d) => missDistUnit === 'astronomical' ? d?.miss_distance?.astronomical : missDistUnit === 'kilometers' ? d?.miss_distance?.kilometers : missDistUnit === 'lunar' ? d?.miss_distance?.lunar : d?.miss_distance?.miles),
+            }
+        ]
+    }
     const options = {
         maintainAspectRatio: false,
     }
@@ -69,10 +80,10 @@ const Asteroids = () => {
                 <div className='flex item-center gap-x-5'>
                     <div className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-orange-400'>Change Unit : </div>
                     <select onChange={(e) =>handleChange(e)} className="bg-transparent text-white bg-black">
-                        <option>feet</option>
-                        <option>kilometers</option>
-                        <option>meters</option>
-                        <option>miles</option>
+                        <option className='text-black'>feet</option>
+                        <option className='text-black'>kilometers</option>
+                        <option className='text-black'>meters</option>
+                        <option className='text-black'>miles</option>
                     </select>
                 </div>
                 
@@ -80,6 +91,37 @@ const Asteroids = () => {
                     <div>Estimated Diameter Max : {unit === "feet" ? asteroidData?.estimated_diameter?.feet?.estimated_diameter_max : unit === "kilometers" ? asteroidData?.estimated_diameter?.kilometers?.estimated_diameter_max : unit === "meters" ? asteroidData?.estimated_diameter?.meters?.estimated_diameter_max : asteroidData?.estimated_diameter?.miles?.estimated_diameter_max}</div>
                     <div>Estimated Diameter Min : {unit === "feet" ? asteroidData?.estimated_diameter?.feet?.estimated_diameter_min : unit === "kilometers" ? asteroidData?.estimated_diameter?.kilometers?.estimated_diameter_min : unit === "meters" ? asteroidData?.estimated_diameter?.meters?.estimated_diameter_min : asteroidData?.estimated_diameter?.miles?.estimated_diameter_min}</div>
                 </div>
+            </div>
+        </div>
+
+        <div className="mx-auto flex flex-col gap-y-8 h-[650px] w-full p-8 shadow-[0px_0px_16px_4px_#faf089]">
+            <div className='text-5xl p-3 font-bold text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Miss Distance Visualization</div>
+
+            <div className='flex text-xl font-bold p-3 gap-x-6'>
+                <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
+                    From:
+                    <input type='number' name='From' id='From' value={chartRange.From} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
+                </label>
+                
+                <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
+                    To:
+                    <input type='number' name='To' id='To' value={chartRange.To} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
+                </label>   
+
+                <div className='flex gap-x-3 items-center text-xl font-bold'>
+                    <div className='text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Select Unit: </div>
+
+                    <select onChange={(e) => setMissDistUnit(e.target.value)} className="bg-transparent text-white bg-black p-3 border-none outline-none">
+                        <option className='text-black'>astronomical</option>
+                        <option className='text-black'>kilometers</option>
+                        <option className='text-black'>lunar</option>
+                        <option className='text-black'>miles</option>
+                    </select>
+                </div>             
+            </div>
+
+            <div className='h-[400px]'>
+                <Line data={missDistCharData} options={options}/>
             </div>
         </div>
 
@@ -95,7 +137,17 @@ const Asteroids = () => {
                 <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
                     To:
                     <input type='number' name='To' id='To' value={chartRange.To} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
-                </label>                
+                </label>
+
+                <div className='flex gap-x-3 items-center text-xl font-bold'>
+                    <div className='text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Select Unit: </div>
+
+                    <select onChange={(e) => setRelVelUnit(e.target.value)} className="bg-transparent text-white bg-black outline-none">
+                        <option className='text-black'>Km / H</option>
+                        <option className='text-black'>Km / Sec</option>
+                        <option className='text-black'>Miles / H</option>
+                    </select>
+                </div>                
             </div>
 
             <div className='h-[400px]'>
