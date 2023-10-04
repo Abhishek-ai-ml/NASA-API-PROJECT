@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Line } from 'react-chartjs-2';
 import {Chart, registerables} from 'chart.js'
+import {FaStar} from 'react-icons/fa'
+import { useLocation } from 'react-router-dom';
 
 Chart.register(...registerables)
 
@@ -45,7 +47,7 @@ const Asteroids = () => {
     }
 
     useEffect(() => {
-        fetch(`https://api.nasa.gov/neo/rest/v1/neo/${asteroid}?api_key=u7c13MEesZs4jzvuP5fAGf1A21Pc6ALJKYER2BW1`)
+        fetch(`https://api.nasa.gov/neo/rest/v1/neo/${asteroid}?api_key=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(data => {
             setAsteroidData(data)
@@ -64,7 +66,7 @@ const Asteroids = () => {
   return (
     <div className='w-full bg-black'>
       <div className='flex flex-col w-10/12 mx-auto pt-10 gap-y-5'>
-        
+
         <div className='flex place-content-start w-full max-w-max gap-x-5 items-center border-none'>
             <h1 className='text-5xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Asteroid By Id : </h1>
             <input type='text' onChange={(e) => setAsteroid(e.target.value)} className='bg-transparent border-b-4 border-l-2 border-r-2 rounded-xl border-blue-400 text-5xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center'></input>

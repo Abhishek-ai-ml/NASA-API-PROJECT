@@ -28,7 +28,7 @@ const Mars = ({setRoverInfoData}) => {
     console.log("The date is --------------->", date);
 
     useEffect(() => {
-        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?earth_date=${date}&page=1&api_key=u7c13MEesZs4jzvuP5fAGf1A21Pc6ALJKYER2BW1`)
+        fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/${roverName}/photos?earth_date=${date}&page=1&api_key=${process.env.REACT_APP_API_KEY}`)
         .then(res => res.json())
         .then(marsTempData => {
             setRoverData(marsTempData.photos)

@@ -6,12 +6,15 @@ import Mars from "./components/Mars";
 import Home from "./components/Home";
 import RoverImage from "./components/RoverImage";
 import Asteroids from "./components/Asteroids";
+import EarthSatelliteImage from "./components/EarthSatelliteImage";
+import SpaceWeather from "./components/SpaceWeather";
+import SpaceSearch from "./components/SpaceSearch";
 
 function App() {
   const [data, setData] = useState([]);
-
+  console.log(process.env.REACT_APP_API_KEY);
   useEffect(() => {
-    fetch("https://api.nasa.gov/planetary/apod?api_key=u7c13MEesZs4jzvuP5fAGf1A21Pc6ALJKYER2BW1")
+    fetch(`https://api.nasa.gov/planetary/apod?api_key=${process.env.REACT_APP_API_KEY}`)
       .then(res => res.json())
       .then(data => {
         setData(data)
@@ -35,6 +38,9 @@ function App() {
         <Route path='/mars' element={<Mars setRoverInfoData={setRoverInfoData}/>}/>
         <Route path="/mars/rover-image-desc" element={<RoverImage roverInfoData={roverInfoData}/>}/>
         <Route path="/asteroids-info" element={<Asteroids/>}/>
+        {/* <Route path="/earth-satellite-image" element={<EarthSatelliteImage/>}/> */}
+        <Route path="/space-weather" element={<SpaceWeather/>}/>
+        <Route path="/space-search" element={<SpaceSearch/>}/>
       </Routes>
 
     </div>
