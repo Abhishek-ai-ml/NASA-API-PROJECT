@@ -28,7 +28,7 @@ function App() {
 
   const [roverInfoData, setRoverInfoData] = useState([]);
   return (
-    <div>
+    <div className=" overflow-x-hidden">
       
 
       <Navbar/>

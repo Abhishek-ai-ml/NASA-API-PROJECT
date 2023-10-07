@@ -67,18 +67,18 @@ const Asteroids = () => {
     <div className='w-full bg-black'>
       <div className='flex flex-col w-10/12 mx-auto pt-10 gap-y-5'>
 
-        <div className='flex place-content-start w-full max-w-max gap-x-5 items-center border-none'>
-            <h1 className='text-5xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Asteroid By Id : </h1>
-            <input type='text' onChange={(e) => setAsteroid(e.target.value)} className='bg-transparent border-b-4 border-l-2 border-r-2 rounded-xl border-blue-400 text-5xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center'></input>
+        <div className='lg:flex lg:flex-nowrap flex-wrap place-content-start w-full max-w-max gap-x-5 items-center border-none'>
+            <h1 className='lg:text-5xl text-3xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Asteroid By Id : </h1>
+            <input type='text' onChange={(e) => setAsteroid(e.target.value)} className='bg-transparent border-b-4 border-l-2 border-r-2 rounded-xl border-blue-400 lg:text-5xl text-3xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center'></input>
         </div>
 
         <div className='text-4xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-red-600 to-orange-400'>{asteroidData?.name?.substr(1, asteroidData.name.length-2)}</div>
 
-        <div className='flex justify-start gap-x-8'>
-            <div className='w-[50%] flex justify-center items-center p-5 shadow-[0px_0px_16px_4px_#90cdf4] rounded-2xl text-5xl font-bold '><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-orange-400">Hazardous?</span> {asteroidData?.is_potentially_hazardous_asteroid ? "😱" : "😊"}</div>
+        <div className='lg:flex lg:flex-nowrap flex-wrap justify-start gap-x-8'>
+            <div className='lg:w-[50%] w-full flex justify-center items-center p-5 shadow-[0px_0px_16px_4px_#90cdf4] rounded-2xl lg:text-5xl text-3xl font-bold mb-8 lg:mb-8'><span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-orange-400">Hazardous?</span> {asteroidData?.is_potentially_hazardous_asteroid ? "😱" : "😊"}</div>
             
 
-            <div className='w-[50%] flex flex-col gap-y-3 p-5 text-lg shadow-[0px_0px_16px_4px_#90cdf4] rounded-2xl'>
+            <div className='lg:w-[50%] w-full flex flex-col gap-y-3 p-5 text-lg shadow-[0px_0px_16px_4px_#90cdf4] rounded-2xl'>
                 <div className='flex item-center gap-x-5'>
                     <div className='text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-orange-400'>Change Unit : </div>
                     <select onChange={(e) =>handleChange(e)} className="bg-transparent text-white bg-black">
@@ -96,18 +96,18 @@ const Asteroids = () => {
             </div>
         </div>
 
-        <div className="mx-auto flex flex-col gap-y-8 h-[650px] w-full p-8 shadow-[0px_0px_16px_4px_#faf089]">
-            <div className='text-5xl p-3 font-bold text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Miss Distance Visualization</div>
+        <div className="mx-auto flex flex-col gap-y-8 h-[650px] w-full lg:p-8 pb-16 shadow-[0px_0px_16px_4px_#faf089]">
+            <div className='lg:text-5xl text-3xl p-3 font-bold text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Miss Distance Visualization</div>
 
-            <div className='flex text-xl font-bold p-3 gap-x-6'>
-                <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
+            <div className='lg:flex lg:flex-nowrap flex-wrap text-xl font-bold p-3 gap-x-6'>
+                <label className='flex lg:gap-x-3 gap-x-8  mb-5 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
                     From:
-                    <input type='number' name='From' id='From' value={chartRange.From} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
+                    <input type='number' name='From' id='From' value={chartRange.From} onChange={handleOnChange} className="outline-none text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
                 </label>
                 
-                <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
+                <label className='flex lg:gap-x-3 gap-x-8 mb-5 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
                     To:
-                    <input type='number' name='To' id='To' value={chartRange.To} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
+                    <input type='number' name='To' id='To' value={chartRange.To} onChange={handleOnChange} className="outline-none text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
                 </label>   
 
                 <div className='flex gap-x-3 items-center text-xl font-bold'>
@@ -122,26 +122,26 @@ const Asteroids = () => {
                 </div>             
             </div>
 
-            <div className='h-[400px]'>
+            <div className='lg:h-[400px] h-[300px]'>
                 <Line data={missDistCharData} options={options}/>
             </div>
         </div>
 
-        <div className="mx-auto flex flex-col gap-y-8 h-[650px] w-full p-8 shadow-[0px_0px_16px_4px_#faf089]">
-            <div className='text-5xl p-3 font-bold text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Relative Velocity Visualization</div>
+        <div className="mx-auto flex flex-col gap-y-8 h-[650px] w-full lg:p-8 pb-16  shadow-[0px_0px_16px_4px_#faf089]">
+            <div className='lg:text-5xl text-3xl p-3 font-bold text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Relative Velocity Visualization</div>
 
-            <div className='flex text-xl font-bold p-3 gap-x-6'>
-                <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
+            <div className='lg:flex lg:flex-nowrap flex-wrap text-xl font-bold p-3 gap-x-6'>
+                <label className='flex lg:gap-x-3 gap-x-8 mb-5 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
                     From:
-                    <input type='number' name='From' id='From' value={chartRange.From} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
+                    <input type='number' name='From' id='From' value={chartRange.From} onChange={handleOnChange} className="outline-none text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
                 </label>
                 
-                <label className='flex gap-x-3 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
+                <label className='flex lg:gap-x-3 gap-x-8 mb-5 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>
                     To:
-                    <input type='number' name='To' id='To' value={chartRange.To} onChange={handleOnChange} className="text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
+                    <input type='number' name='To' id='To' value={chartRange.To} onChange={handleOnChange} className="outline-none text-center w-[50%] border-blue-400 border-b-4 rounded-xl bg-transparent"/>
                 </label>
 
-                <div className='flex gap-x-3 items-center text-xl font-bold'>
+                <div className='flex lg:gap-x-3 gap-x-8 items-center text-xl font-bold'>
                     <div className='text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Select Unit: </div>
 
                     <select onChange={(e) => setRelVelUnit(e.target.value)} className="bg-transparent text-white bg-black outline-none">
@@ -152,7 +152,7 @@ const Asteroids = () => {
                 </div>                
             </div>
 
-            <div className='h-[400px]'>
+            <div className='lg:h-[400px] h-[300px]'>
                 <Line data={chartData} options={options}/>
             </div>
         </div>
@@ -166,7 +166,7 @@ const Asteroids = () => {
                 <div>{asteroidData?.orbital_data?.orbit_class?.orbit_class_type}</div>
             </div>
 
-            <div className='grid grid-cols-2 text-lg w-full mt-5 mx-auto place-content-center p-8 shadow-[0px_0px_16px_4px_#90cdf4] rounded-3xl font-semibold  text-white'>
+            <div className='grid lg:grid-cols-2 grid-cols-1 text-lg w-full mt-5 mx-auto place-content-center p-8 shadow-[0px_0px_16px_4px_#90cdf4] rounded-3xl font-semibold  text-white'>
                 {/* Part 1 */}
                 <div className='flex flex-col gap-y-3'>
                     <div>Aphelion Distance : {asteroidData?.orbital_data?.aphelion_distance}</div>

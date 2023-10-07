@@ -38,7 +38,7 @@ const SearchResults = ({setSearchResult, searchResult}) => {
     <div className='bg-white p-5 text-black rounded-3xl'>
         <div className='flex flex-col gap-y-8 mx-auto p-5'>
             <div className='flex justify-between items-center'>
-                <h1 className='text-3xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>{searchResult?.data[0]?.title}</h1>
+                <h1 className='lg:text-3xl text-xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>{searchResult?.data[0]?.title}</h1>
                 <div onClick={() => setSearchResult(null)} className='hover:cursor-pointer p-2 bg-gradient-to-t from-blue-600 to-cyan-400 rounded-full text-white font-bold'> <RxCross1 size={24}/> </div>
             </div>
 
@@ -51,16 +51,16 @@ const SearchResults = ({setSearchResult, searchResult}) => {
                     <div className='text-xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>Photos</div>
                     <div className='flex flex-wrap gap-x-5 gap-y-5 items-center justify-center mx-auto w-full'>
                         {
-                            images?.map((m) => (<img src={m} className='w-[20%] hover:scale-110 transition-all duration-200 ease-in-out hover:cursor-pointer hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]'/>))
+                            images?.map((m) => (<img src={m} className='lg:w-[20%] w-full  hover:scale-110 transition-all duration-200 ease-in-out hover:cursor-pointer hover:shadow-[0_3px_10px_rgb(0,0,0,0.2)]'/>))
                         }
                     </div>
                 </div>
 
                 <div className='flex flex-col gap-y-3 w-full items-center'>
-                    <div className='text-xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>{videos.length > 0 ? "Videos" : "No Videos"}</div>
-                    <div className='flex flex-wrap gap-x-5 gap-y-5 items-center justify-center mx-auto w-full'>
+                    <div className='text-xl border-t-2 border-blue-600 w-full text-center pt-2 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>{videos.length > 0 ? "Videos" : "No Videos"}</div>
+                    <div className='flex flex-wrap gap-x-5 gap-y-5 items-center justify-center mx-auto w-full '>
                         {
-                            videos?.map((m) => (<video src={m} controls className='w-[20%] hover:scale-110 transition-all duration-200 ease-in-out hover:cursor-pointer'/>))
+                            videos?.map((m) => (<video src={m} controls className='lg:w-[20%] w-full hover:scale-110 transition-all duration-200 ease-in-out hover:cursor-pointer'/>))
                         }
                     </div>
                 </div>
