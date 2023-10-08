@@ -48,7 +48,7 @@ const Mars = ({setRoverInfoData}) => {
                     <p className='text-xl font-semibold'>Please select the rover :</p>
                     <div className='flex-wrap lg:flex lg:flex-nowrap gap-x-5'>
                         {rovers.map((rover) => (
-                            <button onClick={() => setRoverName(rover.rname.toLowerCase())} className='px-5 py-3 rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] hover:scale-105 transition-all duration-200 ease-in-out'>{rover.rname}</button>
+                            <button onClick={() => setRoverName(rover.rname.toLowerCase())} className='px-5 py-3 rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] hover:scale-105 transition-all duration-200 ease-in-out lg:w-fit w-full mb-3 lg:mb-0'>{rover.rname}</button>
                         ))}
                     </div>  
                 </div>
@@ -56,7 +56,7 @@ const Mars = ({setRoverInfoData}) => {
                 <div className='flex flex-col items-center  gap-x-5 lg:w-[50%] w-full gap-y-8 p-10 shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-gradient-to-r from-red-700 to-orange-400 text-white'>
                     <p className='text-xl font-semibold'>Select Earth Date</p>
                     <div className='flex-wrap lg:flex lg:flex-nowrap items-center gap-x-5'>
-                        <input type='date' onChange={handleChange} className='px-5 py-3 rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-gradient-to-r from-red-700 to-orange-400'/>
+                        <input type='date' onChange={handleChange} className='px-5 py-3 rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] bg-gradient-to-r from-red-700 to-orange-400 mb-5 lg:mb-0'/>
                         <button type='submit' className='px-5 py-3 rounded-lg shadow-[rgba(0,_0,_0,_0.24)_0px_3px_8px] hover:scale-105 transition-all duration-200 ease-in-out'>Search</button>
                     </div>
                 </div>

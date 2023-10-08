@@ -32,7 +32,7 @@ const SpaceWeather = () => {
   console.log("Next Date is:", nextDate);
   return (
     <div className='w-screen h-full bg-black overflow-x-hidden'>
-      <div className='flex flex-col lg:w-11/12 w-full h-full mx-auto pt-16 pb-72'>
+      <div className='flex flex-col lg:w-11/12 w-11/12 h-full mx-auto pt-16 pb-72'>
         {/* CME */}
         <div className='relative w-full h-full flex flex-col rounded-lg shadow-[0px_0px_16px_4px_#faf089] gap-y-8'>
           <h1 className='text-5xl p-5 text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-400 font-bold pb-5'>Coronal Mass Ejection</h1>

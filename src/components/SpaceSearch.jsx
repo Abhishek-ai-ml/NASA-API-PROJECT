@@ -21,8 +21,8 @@ const SpaceSearch = () => {
     console.log("SEARCH RSULT ==>", searchResult);
 
   return (
-    <div className={`${searchWord ? "h-full " : "h-screen"} bg-black flex w-full`}>
-        <div className='flex flex-col lg:w-10/12 w-full h-full mx-auto pt-10 gap-y-5'>
+    <div className={`${searchWord ? "h-full " : "h-screen"} bg-black flex w-full overflow-x-hidden overflow-y-auto`}>
+        <div className='flex flex-col lg:w-10/12 w-11/12 h-full mx-auto pt-10 gap-y-5'>
             {/* Search Section */}
             <div className='relative flex place-content-start w-full max-w-max gap-x-5 items-center border-none justify-center mx-auto'>
                 {/* <h1 className='text-5xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Space: </h1> */}
@@ -48,7 +48,7 @@ const SpaceSearch = () => {
                 }
             </div>
 
-            <div className={`${searchResult ? "absolute top-56 flex mx-auto justify-center lg:w-10/12 w-full h-fit" : ""}`}>/
+            <div className={`${searchResult ? "absolute top-56 flex mx-auto justify-center lg:w-10/12 w-fit h-fit" : ""}`}>/
                 {searchResult && <SearchResults searchResult={searchResult} setSearchResult={setSearchResult}/>}
             </div>
         </div>

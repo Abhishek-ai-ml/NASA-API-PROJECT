@@ -65,10 +65,10 @@ const Asteroids = () => {
 
   return (
     <div className='w-full bg-black'>
-      <div className='flex flex-col w-10/12 mx-auto pt-10 gap-y-5'>
+      <div className='flex flex-col lg:w-10/12 w-11/12 mx-auto pt-10 gap-y-5'>
 
         <div className='lg:flex lg:flex-nowrap flex-wrap place-content-start w-full max-w-max gap-x-5 items-center border-none'>
-            <h1 className='lg:text-5xl text-3xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Asteroid By Id : </h1>
+            <h1 className='lg:text-5xl text-2xl font-bold lg:p-5 p-2 mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Asteroid By Id : </h1>
             <input type='text' onChange={(e) => setAsteroid(e.target.value)} className='bg-transparent border-b-4 border-l-2 border-r-2 rounded-xl border-blue-400 lg:text-5xl text-3xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center'></input>
         </div>
 
@@ -157,10 +157,10 @@ const Asteroids = () => {
             </div>
         </div>
 
-        <div className='flex flex-col gap-y-5 w-full mx-auto mt-12 p-8 shadow-[0px_0px_16px_4px_#faf089]'>
+        <div className='flex flex-col gap-y-5 w-full mx-auto mt-12 lg:p-8 p-3 shadow-[0px_0px_16px_4px_#faf089]'>
             <h2 className='text-5xl p-3 font-bold text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Orbital Data</h2>
             
-            <div className='flex flex-col gap-y-2 text-xl font-bold p-8 shadow-[0px_0px_16px_4px_#90cdf4] text-white rounded-3xl'>
+            <div className='flex flex-col gap-y-2 text-xl font-bold lg:p-8 p-5 shadow-[0px_0px_16px_4px_#90cdf4] text-white rounded-3xl'>
                 <div>{asteroidData?.orbital_data?.orbit_class?.orbit_class_description}</div>
                 <div>{asteroidData?.orbital_data?.orbit_class?.orbit_class_range}</div>
                 <div>{asteroidData?.orbital_data?.orbit_class?.orbit_class_type}</div>

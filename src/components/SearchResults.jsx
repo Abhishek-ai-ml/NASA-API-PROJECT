@@ -35,14 +35,14 @@ const SearchResults = ({setSearchResult, searchResult}) => {
     console.log("Videos", videos);
     
   return (
-    <div className='bg-white p-5 text-black rounded-3xl'>
-        <div className='flex flex-col gap-y-8 mx-auto p-5'>
+    <div className='bg-white p-5 h-screen text-black rounded-3xl overflow-x-scroll overflow-y-scroll'>
+        <div className='flex flex-col gap-y-8 mx-auto lg:p-5 p-1'>
             <div className='flex justify-between items-center'>
                 <h1 className='lg:text-3xl text-xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>{searchResult?.data[0]?.title}</h1>
                 <div onClick={() => setSearchResult(null)} className='hover:cursor-pointer p-2 bg-gradient-to-t from-blue-600 to-cyan-400 rounded-full text-white font-bold'> <RxCross1 size={24}/> </div>
             </div>
 
-            <div className='p-8 text-justify rounded-2xl leading-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>{searchResult?.data[0].description}</div>
+            <div className='lg:p-8 p-3 text-justify rounded-2xl leading-7 shadow-[0_3px_10px_rgb(0,0,0,0.2)]'>{searchResult?.data[0].description.substr(0, 500)}...</div>
 
             <div className='flex flex-col mx-auto gap-y-5'>
                 <div className='text-2xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 font-bold'>Media:</div>
