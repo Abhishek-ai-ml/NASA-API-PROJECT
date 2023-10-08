@@ -45,7 +45,7 @@ const SpaceWeather = () => {
 
             <div className='flex gap-x-3 items-center p-5'>
               <div className='text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-400 font-semibold'>Number of Entries:</div>
-              <input type='number' className='bg-transparent p-2 text-white border-orange-600 border-2 rounded-lg outline-none' onChange={(e) => setEntries(e.target.value)}/>
+              <input type='number' className='bg-transparent p-2 text-white border-orange-600 border-2 rounded-lg outline-none lg:w-fit w-1/2' onChange={(e) => setEntries(e.target.value)}/>
             </div>
           </div>
 

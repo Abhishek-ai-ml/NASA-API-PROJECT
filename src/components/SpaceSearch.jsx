@@ -26,8 +26,8 @@ const SpaceSearch = () => {
             {/* Search Section */}
             <div className='relative flex place-content-start w-full max-w-max gap-x-5 items-center border-none justify-center mx-auto'>
                 {/* <h1 className='text-5xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Space: </h1> */}
-                <input type='text' onChange={(e) => setSearchWord(e.target.value)} className='outline-none shadow-[0px_0px_16px_4px_#90cdf4] bg-transparent rounded-xl border-blue-400 lg:text-5xl text-3xl lg:p-0 p-2 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center'></input>
-                <BiSearchAlt size={36} className='text-white absolute lg:right-5 right-1'/>
+                <input type='text' onChange={(e) => setSearchWord(e.target.value)} className='outline-none shadow-[0px_0px_16px_4px_#90cdf4] bg-transparent rounded-xl border-blue-400 lg:text-5xl text-3xl lg:p-0 p-2 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center lg:w-fit w-3/4'></input>
+                <BiSearchAlt size={36} className='text-white absolute lg:right-5 right-10'/>
             </div>
 
             <div className='flex flex-col text-white mx-auto w-full h-fit rounded-xl mt-8 p-2 shadow-[0px_0px_16px_4px_#90cdf4]'>

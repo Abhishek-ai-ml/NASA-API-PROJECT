@@ -69,7 +69,7 @@ const Asteroids = () => {
 
         <div className='lg:flex lg:flex-nowrap flex-wrap place-content-start w-full max-w-max gap-x-5 items-center border-none'>
             <h1 className='lg:text-5xl text-2xl font-bold lg:p-5 p-2 mb-2 lg:mb-0 text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400'>Search Asteroid By Id : </h1>
-            <input type='text' onChange={(e) => setAsteroid(e.target.value)} className='bg-transparent border-b-4 border-l-2 border-r-2 rounded-xl border-blue-400 lg:text-5xl text-3xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center'></input>
+            <input type='text' onChange={(e) => setAsteroid(e.target.value)} className='bg-transparent border-b-4 border-l-2 border-r-2 rounded-xl border-blue-400 lg:text-5xl text-3xl text-transparent bg-clip-text bg-gradient-to-t from-blue-600 to-cyan-400 text-center lg:w-fit w-3/4'></input>
         </div>
 
         <div className='text-4xl font-bold p-5 text-transparent bg-clip-text bg-gradient-to-t from-red-600 to-orange-400'>{asteroidData?.name?.substr(1, asteroidData.name.length-2)}</div>
